@@ -1,65 +1,85 @@
-//Write a program uses OMDB movie API to provide following functionalities
+//Write a program uses OMDB movie API to provide following functionalities:
+//1.Upcoming films  2.Popular Films 3.Best Rated Movies
 import 'package:http/http.dart 'as http;
 import 'dart:convert';
+class Movies{
+    List<Map> upcommingmovies;
+    List<Map> popularmovies;
+    List<Map> bestratedmovies;
+     
+     Movies({this.upcommingmovies,this.popularmovies,this.bestratedmovies});
+     factory Movies.movies(Map<String,dynamic> json)     //Using Factory construtor to decode the json data
+     
+     {  var obj=json['results'];
+        return Movies(upcommingmovies:List<Map>.from(obj),popularmovies:List<Map>.from(obj),bestratedmovies:List<Map>.from(obj));
+     }
+}
 
 void main()async
 {
-    await getmovie();
-   await getbestratedmovie();
+    await getupcomingmovie();
     await getpopularmovie();
-
+    await getbestratedmovie();
+   
 }
-//Upcomming films
-Future<dynamic> getmovie() async
+//Upcoming Movies
+Future<void> getupcomingmovie()async
 {
-    var requests=Uri.parse("https://api.themoviedb.org/3/movie/upcoming?api_key=ea6463e55c191db139fd22120a57f774&language=en-US&page=1");
-    var response=await http.get(requests);
-    print(requests);
-    print(response.statusCode);
+    var request=Uri.parse("https://api.themoviedb.org/3/movie/upcoming?api_key=ea6463e55c191db139fd22120a57f774&language=en-US&page=1");
+    var response=await http.get(request);
     var output=response.body;
-    Map data=json.decode(output.toString());
-    //print(data);
-    List list=data['results'];
-    print("Upcomming films");
-    for(var i=0; i<list.length; i++)
+    //print(output);
+    var films=Movies.movies(json.decode(output));
+    //print(films.upcommingmovies);
+    print("Upcomming Movies:");
+    for(var i=0; i<films.upcommingmovies.length; i++)
     {
+
+        print(films.upcommingmovies[i]['original_title']);//GIves the titlename of the movies
+        //print(films.upcommingmovies[i]['overview']);   //It gives the  overview of the movies
         
-        print(list[i]['original_title']);
-    }
     
+    }
+
 }
 
-//Best Rated Films:
-Future<dynamic> getbestratedmovie() async
+//Popular Movies
+Future<void> getpopularmovie()async
 {
-    var requests=Uri.parse("https://api.themoviedb.org/3/movie/top_rated?api_key=ea6463e55c191db139fd22120a57f774&language=en-US&page=1");
-    var response=await http.get(requests);
-    print(response.statusCode);
-    var output=response.body;
-    Map data=json.decode(output.toString());
-    List listS=data['results'];
-    //print(listS);
-    print("\nBest Rated Movies");
-    for(var i=0; i<listS.length; i++)
+    var request=Uri.parse("https://api.themoviedb.org/3/movie/popular?api_key=ea6463e55c191db139fd22120a57f774&language=en-US&page=1");
+    var response=await http.get(request);
+    var outputs=response.body;
+    var popfilms=Movies.movies(json.decode(outputs));
+    print("\nPopular Movies:");
+    for(var i=0; i<popfilms.popularmovies.length; i++)
     {
-        print("${listS[i]['original_title']}");
+
+        print(popfilms.popularmovies[i]['original_title']);//GIves the titlename of the movies
+        //print(films.upcommingmovies[i]['overview']);   //It gives the  overview of the movies
+        
+    
     }
+
 }
 
-//Most Popular Films
-Future<dynamic> getpopularmovie() async
+//Best Rated Movies
+Future<void> getbestratedmovie()async
 {
-    var requests=Uri.parse("https://api.themoviedb.org/3/movie/popular?api_key=ea6463e55c191db139fd22120a57f774&language=en-US&page=1");
-    var response=await http.get(requests);
-    print(response.statusCode);
-    var output=response.body;
-    Map data=json.decode(output.toString());
-    List popularlists=data['results'];
-    
-    print("\nPopular Movies");
-    for(var i=0; i<popularlists.length; i++)
+    var request=Uri.parse("https://api.themoviedb.org/3/movie/top_rated?api_key=ea6463e55c191db139fd22120a57f774&language=en-US&page=1");
+    var response=await http.get(request);
+    var outputss=response.body;
+    var bestfilms=Movies.movies(json.decode(outputss));
+    print("\nBest Rated  Movies:");
+    for(var i=0; i<bestfilms.bestratedmovies.length; i++)
     {
-        print("${popularlists[i]['original_title']}");
+
+        print(bestfilms.bestratedmovies[i]['original_title']);//GIves the titlename of the movies
+        //print(films.upcommingmovies[i]['overview']);   //It gives the  overview of the movies
+        
+    
     }
+
 }
+
+
 
