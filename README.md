@@ -21,6 +21,8 @@ If you have install dart in your machine then type command in terminal as "dart 
 ![Popular Movies](https://user-images.githubusercontent.com/82046769/214287599-9aafb264-b102-44f5-a495-8390b68ec699.png)
 ![BestRatedmovies](https://user-images.githubusercontent.com/82046769/214287663-fbde9d24-b8df-4389-b840-800e4e666702.png)
 ![Listof Upcomming movies](https://user-images.githubusercontent.com/82046769/214287725-621f31e1-95d9-4415-82ff-bf78d4e45d0f.png)
+![Get the movie info by search](https://user-images.githubusercontent.com/82046769/214486005-a516ea2c-75ef-46ff-b7fe-6704561c72a4.png)
+
 
 
 
