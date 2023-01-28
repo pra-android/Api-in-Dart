@@ -24,6 +24,8 @@ If you have install dart in your machine then type command in terminal as "dart 
 ![Star Wars Character displayed](https://user-images.githubusercontent.com/82046769/214605236-fb301fd0-3f03-4396-a337-7135f90abdaa.png)
 ![Quiz Using API](https://user-images.githubusercontent.com/82046769/214753130-7b6c7e12-6d45-4328-8495-1f3544bd0347.png)
 ![Weather App](https://user-images.githubusercontent.com/82046769/214786199-c6744078-588e-4267-b7c9-1468e26b4706.png)
+![Quotesoftheday](https://user-images.githubusercontent.com/82046769/215263222-b7db2b7c-d7ed-4960-b9e5-eb86fd672a42.png)
+
 
 
 
