@@ -9,13 +9,19 @@ It is the collection of program/projects  which helps you to build program of RE
 4.STATUS CODE
 5.FETCH API
 
-### TO RUN THE PROGRAMME:
+### GETTING STARTED:
 
 Downloads the projects file you want to perform.
 
 If you have install dart in your machine then type command in terminal as "dart programname.dart"
 
-#### SCREENSHOTS:
+#### PACKAGES USED:
+import 'dart:io';
+import 'dart:convert';
+import 'package:http/http.dart 'as http;
+
+
+##### SCREENSHOTS:
 
 ![Pokemon](https://user-images.githubusercontent.com/82046769/214539507-e8fd06ac-3c0e-4037-b5c5-cbd94f17aa5e.png)
 ![Popular Movies](https://user-images.githubusercontent.com/82046769/214554776-d6f55707-bb5f-4b60-a6ad-12c3c57ccce4.png)
